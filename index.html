@@ -515,6 +515,172 @@ nav a:hover{color:var(--gold)}
   .me-top{flex-direction:column;align-items:flex-start;gap:1rem}.me-intro{text-align:left;max-width:100%}
   #di,#fl,#sh,#me{padding:6rem 0}
 }
+
+/* ══════════════════════════════════════
+   BOCUSE D'OR SHOWCASE — Section artistique
+   Inspiration : galerie éditoriale luxe
+   Cadrage respecté : landscape / portrait
+══════════════════════════════════════ */
+#showcase{{
+  background:var(--black);
+  padding:10rem 0 0;
+}}
+.showcase-header{{
+  max-width:1200px;margin:0 auto;
+  padding:0 5rem 5rem;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}}
+.showcase-eyebrow{{
+  font-size:.52rem;letter-spacing:.45em;
+  text-transform:uppercase;color:var(--gold);
+  font-weight:300;margin-bottom:1.2rem;
+}}
+.showcase-title{{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,5vw,5.5rem);
+  font-weight:300;line-height:.92;color:#fff;
+  letter-spacing:-.02em;
+}}
+.showcase-title em{{
+  display:block;font-style:italic;color:var(--gold);
+}}
+.showcase-caption-main{{
+  font-size:.72rem;line-height:2;
+  color:rgba(255,255,255,.28);
+  max-width:300px;text-align:right;
+  padding-bottom:.3rem;
+  font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+}}
+
+/* Layout éditorial :
+   - Photo 1 : plein écran wide (landscape)
+   - Photos 2+3 : 50/50 (portrait + landscape)
+*/
+.showcase-layout{{
+  display:flex;flex-direction:column;gap:2px;
+  padding:0 2px 2px;
+}}
+
+/* Photo 1 — landscape wide */
+.showcase-main{{
+  position:relative;overflow:hidden;
+  aspect-ratio:16/8;background:#080706;
+  cursor:pointer;
+}}
+.showcase-main img{{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 40%;display:block;
+  filter:brightness(.9);
+  transition:transform 1.2s cubic-bezier(.25,.46,.45,.94),filter .5s;
+}}
+.showcase-main:hover img{{
+  transform:scale(1.04);filter:brightness(1);
+}}
+
+/* Overlay texte bas photo 1 */
+.showcase-main-ov{{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:4rem 3.5rem 2.5rem;
+  background:linear-gradient(
+    transparent 50%,
+    rgba(5,5,5,.85) 100%
+  );
+}}
+.showcase-main-tag{{
+  font-size:.5rem;letter-spacing:.45em;
+  text-transform:uppercase;color:var(--gold2);
+  margin-bottom:.6rem;
+}}
+.showcase-main-title{{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,3vw,3rem);
+  font-weight:300;font-style:italic;color:#fff;line-height:1.1;
+}}
+.showcase-main-sub{{
+  font-size:.65rem;color:rgba(255,255,255,.4);
+  margin-top:.5rem;font-weight:200;letter-spacing:.05em;
+}}
+
+/* Rangée bas : 2 photos */
+.showcase-row{{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+}}
+
+/* Photo 2 — portrait studio (cadrage serré) */
+.showcase-portrait{{
+  position:relative;overflow:hidden;
+  aspect-ratio:4/3;background:#f5f3f0;
+  cursor:pointer;
+}}
+.showcase-portrait img{{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;
+  filter:brightness(.95);
+  transition:transform 1.2s cubic-bezier(.25,.46,.45,.94),filter .5s;
+}}
+.showcase-portrait:hover img{{
+  transform:scale(1.05);filter:brightness(1.02);
+}}
+
+/* Photo 3 — platter 3D spectaculaire */
+.showcase-platter{{
+  position:relative;overflow:hidden;
+  aspect-ratio:4/3;background:#f0efed;
+  cursor:pointer;
+}}
+.showcase-platter img{{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;display:block;
+  filter:brightness(.92);
+  transition:transform 1.2s cubic-bezier(.25,.46,.45,.94),filter .5s;
+}}
+.showcase-platter:hover img{{
+  transform:scale(1.04);filter:brightness(1);
+}}
+
+/* Overlay commun photos 2 et 3 */
+.showcase-ov{{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:3.5rem 2rem 1.5rem;
+  background:linear-gradient(transparent,rgba(5,5,5,.72));
+  opacity:0;transition:opacity .4s;
+}}
+.showcase-portrait:hover .showcase-ov,
+.showcase-platter:hover .showcase-ov{{opacity:1}}
+.showcase-ov-tag{{
+  font-size:.46rem;letter-spacing:.4em;
+  text-transform:uppercase;color:var(--gold2);margin-bottom:.4rem;
+}}
+.showcase-ov-name{{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;font-weight:300;font-style:italic;color:#fff;
+}}
+
+/* Ligne de crédit photographe */
+.showcase-credit{{
+  max-width:1200px;margin:0 auto;
+  padding:1rem 5rem 0;
+  text-align:right;
+}}
+.showcase-credit span{{
+  font-size:.46rem;letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.16);
+}}
+
+@media(max-width:900px){{
+  .showcase-header{{flex-direction:column;align-items:flex-start;gap:1.5rem;padding:0 1.5rem 3rem}}
+  .showcase-caption-main{{text-align:left}}
+  .showcase-main{{aspect-ratio:4/3}}
+  .showcase-row{{grid-template-columns:1fr}}
+  .showcase-portrait,.showcase-platter{{aspect-ratio:4/3}}
+  .showcase-credit{{padding:1rem 1.5rem 0}}
+}}
+
 </style>
 </head>
 <body>
